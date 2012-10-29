@@ -45,11 +45,10 @@
 
         <h3>How it Works</h3>
         <p>
-           The plugin works using a very easy way that define the parents and children inside de &lt;tr&gt; element. Using the "data" attributes we can set the row hierarchy.
+           This plugin reads parent and children <tr> elements via the information stored in the <code>data-id</code> and <code>data-parent</code> attributes and uses it to set the row hierarchy of all our table rows inside a collapsable table.
         </p>
-        <p>Using <code>data-id</code> and <code>data-parent</code>, we can set the hierarchy of all our elements</p>
         <p>
-          <strong>i.e.</strong>
+          <strong>e.g.</strong>
           <pre>
 &lt;table class="collaptable"&gt;
   &lt;tr&gt;
@@ -120,11 +119,10 @@ $(document).ready(function(){
         <h3>Options</h3>
         <dl>
           <dt>startCollapsed</dt>
-          <dd>If it is true, the table is collpased at start. (Default: false)</dd>
+          <dd>If it's <code>true</code>, the table is collapased at start. (Default: <code>false</code>)</dd>
         </dl>
         <hr />
-        <h3>Demo</h3>
-        <p>Usign the previous table:</p>
+        <h3>The previous demonstration code results in the following table</h3>
         <table class="collaptable table">
           <tr>
             <th>#</th>

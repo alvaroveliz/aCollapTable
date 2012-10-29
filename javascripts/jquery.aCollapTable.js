@@ -26,7 +26,7 @@
         $('tr[data-parent='+parent+']', table).each(function(key, item){
           $(item).css('display', display);
           if ($(item).hasClass('act-tr-expanded')) {
-            collaptable($element, $(item).data('id'), display);   
+            _collaptable($element, $(item).data('id'), display);   
           }
         });
 

@@ -1,0 +1,77 @@
+// {>o<} Perkins
+@import "perkins";
+@import "perkins/table";
+@import "perkins/grid";
+
+// {>o<} 3rd Party Bowties
+@import "plugins/mnmlicons/mnmlicons";
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+
+// Config
+@p-page-width: 960px;
+@p-headings: 'Ubuntu';
+@p-sans: 'Ubuntu';
+@p-blue: #1878DC;
+
+body {
+  width: 100%;
+  background: url("../images/tcloth.png");
+}
+
+hr {
+  border: 1px solid #ccc;
+  .box-shadow();
+}
+
+header {
+  .row();
+  section#top {
+    .column(16);
+    nav#menu {
+      padding-bottom: 20px;
+      ul {
+        .h-menu();
+        #gradient > .vertical(#444, #666);
+        width: 100%;
+        .box-shadow(0 0 1px #444);
+        .border-radius(5px);
+        li {
+          a {
+            color: #fff;
+            padding: 10px 20px;
+            border-right: 1px solid #000;
+            .text-shadow(1px 1px #444);
+            &:hover {
+              color: #e4e4e4;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+section#content {
+  .row();
+  padding: 40px 0;
+  #main {
+    .column(16);
+  }
+}
+
+footer {
+  background: rgba(255, 255, 255, 0.5);
+  #footer {
+    .row();
+    padding: 40px 0;
+    .info {
+      .column(12);
+    }
+    .more {
+      .column(4);
+      ul {
+        .h-menu();
+      }
+    }
+  }
+}

@@ -1,1 +1,220 @@
-My GitHub Page
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Alvaro Véliz" />
+    <meta name="description" content="aCollapTable jQuery Plugin - Alvaro's Collapsable Table" />
+    <title>aCollapTable jQuery Plugin - Alvaro's Collapsable Table</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <!--link href="stylesheets/app.less" rel="stylesheet/less" />
+    <script type="text/javascript" src="javascripts/less-1.3.0.min.js"></script-->
+    <link rel="stylesheet" href="stylesheets/styles.css" />
+    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.aCollapTable.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.collaptable').aCollapTable({ startCollapsed: true });
+      });
+    </script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+      <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+    <![endif]-->
+  </head>
+  <body>
+    <header>
+      <section id="top">
+        <h1>Alvaro's Collapsable Table Plugin for jQuery</h1>  
+        <nav id="menu">
+          <ul>
+            <li><a href="javascript:void(0);">aCollapTable</a></li>
+            <li><a href="https://github.com/alvaroveliz/aCollapTable">Github</a></li>
+            <li><a href="javascript:void(0);">Downloads</a></li>
+          </ul>
+        </nav>
+      </section>
+    </header>
+
+    <section id="content">
+      <div id="main">
+        <h2 class="tac"><a href="https://github.com/alvaroveliz/aCollapTable">aCollapTable</a> is a jQuery plugin that will make your html tables collapsables.</h2>    
+        <hr />
+
+        <h3>How it Works</h3>
+        <p>
+           The plugin works using a very easy way that define the parents and children inside de &lt;tr&gt; element. Using the "data" attributes we can set the row hierarchy.
+        </p>
+        <p>Using <code>data-id</code> and <code>data-parent</code>, we can set the hierarchy of all our elements</p>
+        <p>
+          <strong>i.e.</strong>
+          <pre>
+&lt;table class="collaptable"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;#&lt;/th&gt;
+    &lt;th&gt;Name&lt;/th&gt;
+    &lt;th&gt;Description&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr data-id="1" data-parent=""&gt;
+    &lt;td&gt;1&lt;/td&gt;
+    &lt;td&gt;Element 1&lt;/td&gt;
+    &lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr data-id="2" data-parent="1"&gt;
+    &lt;td&gt;1.1&lt;/td&gt;
+    &lt;td&gt;Element 2&lt;/td&gt;
+    &lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr data-id="3" data-parent="1"&gt;
+    &lt;td&gt;1.2&lt;/td&gt;
+    &lt;td&gt;Element 3&lt;/td&gt;
+    &lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr data-id="6" data-parent="3"&gt;
+    &lt;td&gt;1.2.1&lt;/td&gt;
+    &lt;td&gt;Element 6&lt;/td&gt;
+    &lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr data-id="7" data-parent="3"&gt;
+    &lt;td&gt;1.2.2&lt;/td&gt;
+    &lt;td&gt;Element 7&lt;/td&gt;
+    &lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr data-id="8" data-parent="3"&gt;
+    &lt;td&gt;1.2.3&lt;/td&gt;
+    &lt;td&gt;Element 8&lt;/td&gt;
+    &lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr data-id="4" data-parent=""&gt;
+    &lt;td&gt;2&lt;/td&gt;
+    &lt;td&gt;Element 4&lt;/td&gt;
+    &lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr data-id="5" data-parent="4"&gt;
+    &lt;td&gt;2.1&lt;/td&gt;
+    &lt;td&gt;Element 5&lt;/td&gt;
+    &lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+          </pre>
+        </p>
+        <h3>Usage</h3>
+        <pre>
+&lt;script&gt;
+$(document).ready(function(){
+  $('.collaptable').aCollapTable({ startCollapsed: true });
+});
+&lt;/script&gt;
+        </pre>
+        <hr />
+        <h3>Options</h3>
+        <dl>
+          <dt>startCollapsed</dt>
+          <dd>If it is true, the table is collpased at start. (Default: false)</dd>
+        </dl>
+        <hr />
+        <h3>Demo</h3>
+        <p>Usign the previous table:</p>
+        <table class="collaptable table">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+          <tr data-id="1" data-parent="">
+            <td>1</td>
+            <td>Element 1</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</td>
+          </tr>
+          <tr data-id="2" data-parent="1">
+            <td>1.1</td>
+            <td>Element 2</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</td>
+          </tr>
+          <tr data-id="3" data-parent="1">
+            <td>1.2</td>
+            <td>Element 3</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</td>
+          </tr>
+          <tr data-id="6" data-parent="3">
+            <td>1.2.1</td>
+            <td>Element 6</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</td>
+          </tr>
+          <tr data-id="7" data-parent="3">
+            <td>1.2.2</td>
+            <td>Element 7</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</td>
+          </tr>
+          <tr data-id="8" data-parent="3">
+            <td>1.2.3</td>
+            <td>Element 8</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</td>
+          </tr>
+          <tr data-id="4" data-parent="">
+            <td>2</td>
+            <td>Element 4</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</td>
+          </tr>
+          <tr data-id="5" data-parent="4">
+            <td>2.1</td>
+            <td>Element 5</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</td>
+          </tr>
+          <tr data-id="9" data-parent="">
+            <td>3</td>
+            <td>Element 6</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</td>
+          </tr>
+          <tr data-id="10" data-parent="9">
+            <td>3.1</td>
+            <td>Element 7</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</td>
+          </tr>
+          <tr data-id="11" data-parent="9">
+            <td >3.2</td>
+            <td>Element 8</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <div id="footer">
+        <div class="info">
+        <img src="images/logo.png" alt="Alvaro Véliz" width="200" /><br />
+        COLLAPTABLE PLUGIN by Alvaro Véliz
+        </div>
+        <div class="more">
+          <h5>Other plugins</h5>
+          <ul>
+            <li><a href="https://github.com/alvaroveliz/aSimpleTour">aSimpleTour</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

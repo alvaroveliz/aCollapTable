@@ -15,7 +15,11 @@
     <script type="text/javascript" src="javascripts/jquery.aCollapTable.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
-        $('.collaptable').aCollapTable({ startCollapsed: true, plusButton: '<span class="i">+</span>', minusButton: '<span class="i">-</span>' });
+        $('.collaptable').aCollapTable({ 
+          startCollapsed: true, 
+          plusButton: '<span class="i">+</span>', 
+          minusButton: '<span class="i">-</span>' 
+        });
       });
     </script>
     <!--[if lt IE 9]>
@@ -125,9 +129,9 @@ $(document).ready(function(){
           <dt>startCollapsed</dt>
           <dd>If it's <code>true</code>, the table is collapased at start. (Default: <code>false</code>)</dd>
           <dt>plusButton</dt>
-          <dd>The button "plus" (+) that expand the row, HTML allowed</dd>
+          <dd>The expand button ("plus" +). HTML allowed.</dd>
           <dt>minusButton</dt>
-          <dd>The button "minus" (-) that expand the row, HTML allowed</dd>
+          <dd>The collapse button ("minus" -). HTML allowed.</dd>
         </dl>
         <hr />
         <h3>The previous demonstration code results in the following table</h3>

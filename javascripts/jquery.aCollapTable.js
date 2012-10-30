@@ -12,7 +12,9 @@
   $.fn.extend({ 
     aCollapTable: function(options) {
       var defaults = {
-        startCollapsed : false
+        startCollapsed : false,
+        plusButton: '+',
+        minusButton: '-'
       };
       var options = $.extend(defaults, options);
       var self = this;  
@@ -31,11 +33,11 @@
         });
 
         if (display == 'none') {
-          $element.html('<span class="i">+</span>').removeClass('act-expanded').addClass('act-collapsed');
+          $element.html(options.plusButton).removeClass('act-expanded').addClass('act-collapsed');
           $element.parents('tr').addClass('act-tr-collapsed').removeClass('act-tr-expanded');
         }
         else {
-          $element.html('<span class="i">-</span>').removeClass('act-collapsed').addClass('act-expanded');
+          $element.html(options.minusButton).removeClass('act-collapsed').addClass('act-expanded');
           $element.parents('tr').addClass('act-tr-expanded').removeClass('act-tr-collapsed');
         }
       };

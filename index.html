@@ -17,6 +17,7 @@
       $(document).ready(function(){
         $('.collaptable').aCollapTable({ 
           startCollapsed: true, 
+          addColumn: false,
           plusButton: '<span class="i">+</span>', 
           minusButton: '<span class="i">-</span>' 
         });
@@ -116,7 +117,8 @@
 &lt;script&gt;
 $(document).ready(function(){
   $('.collaptable').aCollapTable({ 
-    startCollapsed: true, 
+    startCollapsed: true,
+    addColumn: false, 
     plusButton: '&lt;span class="i"&gt;+&lt;/span&gt;', 
     minusButton: '&lt;span class="i"&gt;-&lt;/span&gt;' 
   });
@@ -128,6 +130,8 @@ $(document).ready(function(){
         <dl>
           <dt>startCollapsed</dt>
           <dd>If it's <code>true</code>, the table is collapased at start. (Default: <code>false</code>)</dd>
+          <dt>addColumn</dt>
+          <dd>If it's <code>true</code>, the plus/minus button will be added like a column. (Default: true)</dd>
           <dt>plusButton</dt>
           <dd>The expand button ("plus" +). HTML allowed.</dd>
           <dt>minusButton</dt>

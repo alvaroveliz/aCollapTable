@@ -1026,8 +1026,8 @@ table tfoot tr td {
 }
 @font-face {
   font-family: 'mnmliconsRegular';
-  src: url('plugins/mnmlicons/mnmliconsv22-perkins.eot');
-  src: url('plugins/mnmlicons/mnmliconsv22-perkins.eot?#iefix') format('embedded-opentype'), url('plugins/mnmlicons/mnmliconsv22-perkins.woff') format('woff'), url('plugins/mnmlicons/mnmliconsv22-perkins.ttf') format('truetype'), url('plugins/mnmlicons/mnmliconsv22-perkins.svg#mnmliconsRegular') format('svg');
+  src: url('mnmlicons/mnmliconsv22-perkins.eot');
+  src: url('mnmlicons/mnmliconsv22-perkins.eot?#iefix') format('embedded-opentype'), url('mnmlicons/mnmliconsv22-perkins.woff') format('woff'), url('mnmlicons/mnmliconsv22-perkins.ttf') format('truetype'), url('mnmlicons/mnmliconsv22-perkins.svg#mnmliconsRegular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -1851,6 +1851,15 @@ section#content #main {
   display: inline;
   float: left;
   overflow: hidden;
+}
+section#content .collaptable .act-tr-level-0 td {
+  background: #fff;
+}
+section#content .collaptable .act-tr-level-1 td {
+  background: #f5f5f5;
+}
+section#content .collaptable .act-tr-level-2 td {
+  background: #e5e5e5;
 }
 footer {
   background: rgba(255, 255, 255, 0.5);

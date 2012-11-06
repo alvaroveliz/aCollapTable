@@ -1,5 +1,5 @@
 /*
- * jQuery Alvaro's Collaptable 1.0
+ * jQuery Alvaro's Collaptable 1.1
  *
  * Copyright (c) 2010 Alvaro Véliz Marín - yo@alvaroveliz.cl
  *
@@ -13,11 +13,13 @@
     aCollapTable: function(options) {
       var defaults = {
         startCollapsed : false,
+        addColumn: true,
         plusButton: '+',
         minusButton: '-'
       };
       var options = $.extend(defaults, options);
       var self = this;  
+      var parents = [];
 
       var _collaptable = function($element, $parent, $display)
       {
@@ -32,38 +34,92 @@
           }
         });
 
+        spacer = _getSpacer($element.parents('tr'));
+
         if (display == 'none') {
-          $element.html(options.plusButton).removeClass('act-expanded').addClass('act-collapsed');
+          $element.html(spacer + options.plusButton).removeClass('act-expanded').addClass('act-collapsed');
           $element.parents('tr').addClass('act-tr-collapsed').removeClass('act-tr-expanded');
         }
         else {
-          $element.html(options.minusButton).removeClass('act-collapsed').addClass('act-expanded');
+          $element.html(spacer + options.minusButton).removeClass('act-collapsed').addClass('act-expanded');
           $element.parents('tr').addClass('act-tr-expanded').removeClass('act-tr-collapsed');
         }
+      };
+
+      var _levelsAndParents = function(obj)
+      {
+        $('tr', obj).each(function(k, item){
+          if ($(item).data('id')) {
+            parent = { id : $(item).data('id'), parent : $(item).data('parent') };
+            parents.push(parent);
+          }
+        });
+        
+        $('tr', obj).each(function(k, item){
+          if ($(item).data('id')) {
+            level = _getLevel($(item));
+            $(item).attr('data-level', level);
+          }
+        });
+      };
+
+      var _getLevel = function($item, $level)
+      {
+        $level = (typeof($level) == 'undefined') ? 0 : $level;
+        if ( $item.data('parent') == '' ) {
+          return $level;
+        }
+        else {
+          $parent = $('tr[data-id='+$item.data('parent')+']');
+          return _getLevel($parent, $level+1);
+        }
+      };
+
+      var _getSpacer = function($item)
+      {
+        spacer = '';
+        for (i = 0; i < $item.data('level') ; i++) {
+          spacer += '&nbsp;&nbsp;';
+        }
+        return spacer;
       };
 
       return this.each(function() {
         var o = options;  
         var obj = $(this);
+        _levelsAndParents(obj);
 
         // adding minus
         if ( $('tr', obj).length > 0) {
-          $('tr', obj).each(function(k, item){
-            if ($('tr[data-parent='+$(item).data('id')+']').length > 0) {
-              $minus = $('<a />').attr('href', 'javascript:void(0)')
+          $('tr', obj).each(function(k, item){   
+            spacer = _getSpacer($(item));
+
+            $minus = $('<a />').attr('href', 'javascript:void(0)')
               .addClass('act-more act-expanded')
-              .html('-')
+              .html(spacer + o.minusButton)
               .bind('click', function(){
                 _collaptable($(this));
               })
               ;
-              $td = $('<td />').html($minus);  
+
+            if ($('tr[data-parent='+$(item).data('id')+']').length > 0) {
+              $button = (o.addColumn == true) ? $('<td />').html($minus) : $minus;  
+              itemClass = (o.startCollapsed) ? 'act-tr-collapsed' : 'act-tr-expanded';
+              $(item).addClass(itemClass);
             }
             else {
-              $td = $('<td />').html('');
+              $button = (o.addColumn == true) ? $('<td />').html(spacer+'&nbsp;&nbsp;') : spacer+'&nbsp;&nbsp;';
+            }            
+
+            if (o.addColumn == true) {  
+              $(item).prepend($button);  
+            }
+            else {
+              $(item).children(':first').prepend($button);
             }
             
-            $(item).prepend($td);
+            // level class
+            $(item).addClass('act-tr-level-'+$(item).data('level'));
           });
 
           // start collapsed

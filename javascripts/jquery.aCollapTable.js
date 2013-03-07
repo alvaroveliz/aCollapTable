@@ -1,5 +1,5 @@
 /*
- * jQuery Alvaro's Collaptable 1.1
+ * jQuery Alvaro's Collaptable 1.0
  *
  * Copyright (c) 2010 Alvaro Véliz Marín - yo@alvaroveliz.cl
  *
@@ -84,10 +84,57 @@
         return spacer;
       };
 
+      var _bindButtons = function()
+      {
+        $('.act-button-expand').live('click', function(){
+          if ( $('tr', self).length > 0 ) {
+            expands = [];
+            $('tr', self).each(function(k, item){
+              if ($(item).hasClass('act-tr-collapsed') && $(item).css('display') != 'none') {
+                expands.push($(item));
+              }
+            });
+            $.each(expands, function(k, $item){
+              _collaptable($('.act-more', $item));
+            });
+          }
+        });
+
+        $('.act-button-collapse').live('click', function(){
+          if ( $('tr', self).length > 0 ) {
+
+          }
+        });
+
+        $('.act-button-expand-all').live('click', function(){
+          if ( $('tr', self).length > 0 ) {
+            collapseds = [];
+          $('tr', self).each(function(k, item){
+              if ($(item).hasClass('act-tr-collapsed')) {
+                _collaptable($('.act-more', $(item)));
+            }
+          });
+          }
+        });
+
+        $('.act-button-collapse-all').live('click', function(){
+          if ( $('tr', self).length > 0 ) {
+            collapseds = [];
+            $('tr', self).each(function(k, item){
+              if ($(item).hasClass('act-tr-expanded')) {
+                _collaptable($('.act-more', $(item)));
+              }
+            });
+          }
+        });
+
+      }
+
       return this.each(function() {
         var o = options;  
         var obj = $(this);
         _levelsAndParents(obj);
+        _bindButtons();
 
         // adding minus
         if ( $('tr', obj).length > 0) {

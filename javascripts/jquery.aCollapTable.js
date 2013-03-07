@@ -1,5 +1,5 @@
 /*
- * jQuery Alvaro's Collaptable 1.0
+ * jQuery Alvaro's Collaptable 1.1
  *
  * Copyright (c) 2010 Alvaro Véliz Marín - yo@alvaroveliz.cl
  *

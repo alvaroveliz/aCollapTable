@@ -1,0 +1,139 @@
+/* Init Perkins */
+@import "assets/_core";
+
+/* Perkins Bowties */
+// Import the Configurable Grid System
+@import "assets/_grid";
+
+// Import Feedback helpers .notice, .success, .error, etc...
+@import "assets/_feedback";
+
+// Import the styles for forms (ul.form>li>label+input)
+@import "assets/_form";
+
+// Import styles for tables (responsive too)
+@import "assets/_table";
+
+/* Perkins External Bowties */
+@import "icons/_icons";
+
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+// Config
+@p-headings: 'Roboto';
+@p-sans: 'Roboto';
+@p-blue: #1878DC;
+
+
+/**
+*  Start building the next web here, Sir
+*/
+
+.row {
+  margin: 0 auto;
+  width: 960px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+body {
+  background: url("../images/tcloth.png");
+}
+
+hr {
+  border: 1px solid #ccc;
+  .box-shadow();
+}
+
+pre {
+  font-weight: normal;
+}
+
+dl {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  .border-radius();
+  dt {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  dd {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+}
+
+header {
+  .row();
+  section#top {
+    .column(16);
+    nav#menu {
+      padding-bottom: 20px;
+      ul {
+        .h-menu();
+        #gradient > .vertical(#444, #666);
+        width: 100%;
+        .box-shadow(0 0 1px #444);
+        .border-radius(5px);
+        li {
+          a {
+            color: #fff;
+            padding: 10px 20px;
+            border-right: 1px solid #000;
+            .text-shadow(1px 1px #444);
+            &:hover {
+              color: #e4e4e4;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+section#content {
+  .row();
+  padding: 40px 0;
+  #main {
+    .column(16);
+  }
+  .collaptable {
+    .act-tr-level-0 {
+      td {
+        background: #fff;
+      }
+    }
+    .act-tr-level-1 {
+      td {
+        background: #f5f5f5;
+      }
+    }
+    .act-tr-level-2 {
+      td {
+        background: #e5e5e5;
+      }
+    }
+  }
+}
+
+footer {
+  background: rgba(255, 255, 255, 0.5);
+  #footer {
+    .row();
+    padding: 40px 0;
+    .info {
+      .column(12);
+      img {
+        width: 140px;
+      }
+    }
+    .more {
+      .column(4);
+      ul {
+        .v-menu();
+      }
+    }
+  }
+}

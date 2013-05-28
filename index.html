@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="images/favicon.ico">
     <!--link href="stylesheets/app.less" rel="stylesheet/less" />
     <script type="text/javascript" src="javascripts/less-1.3.0.min.js"></script-->
-    <link rel="stylesheet" href="stylesheets/styles.css" />
+    <link rel='stylesheet' href='stylesheets/app.css' />
     <script type="text/javascript" src="javascripts/jquery.min.js"></script>
     <script type="text/javascript" src="javascripts/jquery.aCollapTable.js"></script>
     <script type="text/javascript">
@@ -18,8 +18,8 @@
         $('.collaptable').aCollapTable({ 
           startCollapsed: true, 
           addColumn: false,
-          plusButton: '<span class="i">+</span>', 
-          minusButton: '<span class="i">-</span>' 
+          plusButton: '<span class="icon-plus-circle"></span>', 
+          minusButton: '<span class="icon-minus-circle"></span>' 
         });
       });
     </script>
@@ -166,7 +166,7 @@ $(document).ready(function(){
             <th>Description</th>
           </tr>
           <tr data-id="1" data-parent="">
-            <td>1</td>
+            <td width="100">1</td>
             <td>Element 1</td>
             <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua.</td>
@@ -238,13 +238,14 @@ $(document).ready(function(){
     <footer>
       <div id="footer">
         <div class="info">
-        <img src="images/logo.png" alt="Alvaro Véliz" width="200" /><br />
+        <img src="images/logo.png" alt="Alvaro Véliz" /><br />
         COLLAPTABLE PLUGIN by Alvaro Véliz
         </div>
         <div class="more">
           <h5>Other plugins</h5>
           <ul>
-            <li><a href="https://github.com/alvaroveliz/aSimpleTour">aSimpleTour</a></li>
+            <li><a href="http://alvaroveliz.github.io/aSimpleTour/">aSimpleTour</a></li>
+            <li><a href="http://alvaroveliz.github.io/aAnyTabs/">aAnyTabs</a></li>
           </ul>
         </div>
       </div>

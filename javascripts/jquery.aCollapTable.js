@@ -1,5 +1,5 @@
 /*
- * jQuery Alvaro's Collaptable 1.0
+ * jQuery Alvaro's Collaptable 1.0.2
  *
  * Copyright (c) 2010 Alvaro Véliz Marín - yo@alvaroveliz.cl
  *
@@ -86,7 +86,7 @@
 
       var _bindButtons = function()
       {
-        $('.act-button-expand').live('click', function(){
+        $(document).on('click', '.act-button-expand', function(){
           if ( $('tr', self).length > 0 ) {
             expands = [];
             $('tr', self).each(function(k, item){
@@ -100,13 +100,13 @@
           }
         });
 
-        $('.act-button-collapse').live('click', function(){
+        $(document).on('click', '.act-button-collapse', function(){
           if ( $('tr', self).length > 0 ) {
 
           }
         });
 
-        $('.act-button-expand-all').live('click', function(){
+        $(document).on('click', '.act-button-expand-all', function(){
           if ( $('tr', self).length > 0 ) {
             collapseds = [];
           $('tr', self).each(function(k, item){
@@ -117,7 +117,7 @@
           }
         });
 
-        $('.act-button-collapse-all').live('click', function(){
+        $(document).on('click', '.act-button-collapse-all', function(){
           if ( $('tr', self).length > 0 ) {
             collapseds = [];
             $('tr', self).each(function(k, item){

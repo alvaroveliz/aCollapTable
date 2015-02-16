@@ -1,8 +1,0 @@
-{
-    "name": "aAnyTabs",
-    "version": "1.0.1",
-    "main": "./jquery.aCollapTable.js",
-    "dependencies" : {
-        "jquery" : "1.9.*"
-    }
-}

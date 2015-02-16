@@ -1,0 +1,17 @@
+{
+  "name": "aCollapTable",
+  "version": "1.0.2",
+  "homepage": "https://github.com/alvaroveliz/aCollapTable",
+  "authors": [
+    "Alvaro Veliz <alvaro.veliz@gmail.com>"
+  ],
+  "description": "It's a simple jQuery plugin for collapsing tables",
+  "main": "jquery.aCollapTable.js",
+  "keywords": [
+    "jquery",
+    "collapsable",
+    "table",
+    "tree"
+  ],
+  "license": "MIT"
+}

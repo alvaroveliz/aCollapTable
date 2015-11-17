@@ -1,5 +1,5 @@
 /*
- * jQuery Alvaro's Collaptable 1.0.2
+ * jQuery Alvaro's Collaptable 1.0.3
  *
  * Copyright (c) 2010 Alvaro Véliz Marín - yo@alvaroveliz.cl
  *
@@ -21,22 +21,22 @@
       var self = this;  
       var parents = [];
 
-      var _collaptable = function($element, $parent, $display)
+      var _collaptable = function($element, $parentElement, $display)
       {
-        parent = (typeof($parent) == 'undefined') ? $element.parents('tr').data('id') : $parent;
-        display = (typeof($display) == 'undefined') ? ( ($element.hasClass('act-expanded')) ? 'none' : 'table-row' ) : $display;
+        $parentElement = (typeof($parentElement) == 'undefined') ? $element.parents('tr').data('id') : $parentElement;
+        $display = (typeof($display) == 'undefined') ? ( ($element.hasClass('act-expanded')) ? 'none' : 'table-row' ) : $display;
         table = self;
-        
-        $('tr[data-parent='+parent+']', table).each(function(key, item){
-          $(item).css('display', display);
+
+        $('tr[data-parent='+$parentElement+']', table).each(function(key, item){
+          $(item).css('display', $display);
           if ($(item).hasClass('act-tr-expanded')) {
-            _collaptable($element, $(item).data('id'), display);   
+            _collaptable($element, $(item).data('id'), $display);   
           }
         });
 
         spacer = _getSpacer($element.parents('tr'));
 
-        if (display == 'none') {
+        if ($display == 'none') {
           $element.html(spacer + options.plusButton).removeClass('act-expanded').addClass('act-collapsed');
           $element.parents('tr').addClass('act-tr-collapsed').removeClass('act-tr-expanded');
         }
@@ -50,11 +50,11 @@
       {
         $('tr', obj).each(function(k, item){
           if ($(item).data('id')) {
-            parent = { id : $(item).data('id'), parent : $(item).data('parent') };
-            parents.push(parent);
+            $parentElement = { id : $(item).data('id'), parent : $(item).data('parent') };
+            parents.push($parentElement);
           }
         });
-        
+
         $('tr', obj).each(function(k, item){
           if ($(item).data('id')) {
             level = _getLevel($(item));
@@ -70,8 +70,8 @@
           return $level;
         }
         else {
-          $parent = $('tr[data-id='+$item.data('parent')+']');
-          return _getLevel($parent, $level+1);
+          $parentElement = $('tr[data-id='+$item.data('parent')+']');
+          return _getLevel($parentElement, $level+1);
         }
       };
 
@@ -164,7 +164,7 @@
             else {
               $(item).children(':first').prepend($button);
             }
-            
+
             // level class
             $(item).addClass('act-tr-level-'+$(item).data('level'));
           });

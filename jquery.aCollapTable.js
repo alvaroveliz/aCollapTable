@@ -1,5 +1,5 @@
 /*
- * jQuery Alvaro's Collaptable 1.0.3
+ * jQuery Alvaro's Collaptable 1.0.4
  *
  * Copyright (c) 2010 Alvaro Véliz Marín - yo@alvaroveliz.cl
  *
@@ -21,16 +21,15 @@
       var self = this;  
       var parents = [];
 
-      var _collaptable = function($element, $parentElement, $display)
+      var _collaptable = function($table, $element, $parentElement, $display)
       {
         $parentElement = (typeof($parentElement) == 'undefined') ? $element.parents('tr').data('id') : $parentElement;
         $display = (typeof($display) == 'undefined') ? ( ($element.hasClass('act-expanded')) ? 'none' : 'table-row' ) : $display;
-        table = self;
 
-        $('tr[data-parent='+$parentElement+']', table).each(function(key, item){
+        $('tr[data-parent='+$parentElement+']', $table).each(function(key, item){
           $(item).css('display', $display);
           if ($(item).hasClass('act-tr-expanded')) {
-            _collaptable($element, $(item).data('id'), $display);   
+            _collaptable($table, $element, $(item).data('id'), $display);   
           }
         });
 
@@ -54,6 +53,7 @@
             parents.push($parentElement);
           }
         });
+        parents = [];
 
         $('tr', obj).each(function(k, item){
           if ($(item).data('id')) {
@@ -84,7 +84,7 @@
         return spacer;
       };
 
-      var _bindButtons = function()
+      var _bindButtons = function($table)
       {
         $(document).on('click', '.act-button-expand', function(){
           if ( $('tr', self).length > 0 ) {
@@ -95,7 +95,7 @@
               }
             });
             $.each(expands, function(k, $item){
-              _collaptable($('.act-more', $item));
+              _collaptable($table, $('.act-more', $item));
             });
           }
         });
@@ -134,7 +134,7 @@
         var o = options;  
         var obj = $(this);
         _levelsAndParents(obj);
-        _bindButtons();
+        _bindButtons(obj);
 
         // adding minus
         if ( $('tr', obj).length > 0) {
@@ -145,11 +145,11 @@
               .addClass('act-more act-expanded')
               .html(spacer + o.minusButton)
               .bind('click', function(){
-                _collaptable($(this));
+                _collaptable(obj, $(this));
               })
               ;
 
-            if ($('tr[data-parent='+$(item).data('id')+']').length > 0) {
+            if ($('tr[data-parent='+$(item).data('id')+']', obj).length > 0) {
               $button = (o.addColumn == true) ? $('<td />').html($minus) : $minus;  
               itemClass = (o.startCollapsed) ? 'act-tr-collapsed' : 'act-tr-expanded';
               $(item).addClass(itemClass);
@@ -171,7 +171,7 @@
 
           // start collapsed
           if (o.startCollapsed) {
-            $('.act-more').each(function(k, item){
+            $('.act-more', obj).each(function(k, item){
               $(item).click();
             });
           }

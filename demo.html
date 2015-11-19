@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>aCollapTable | Demo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- plugin -->
+    <script src="jquery.aCollapTable.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#demo-1').aCollapTable({
+                startCollapsed: true,
+                addColumn: false,
+                plusButton: '<i class="glyphicon glyphicon-plus"></i> ', 
+                minusButton: '<i class="glyphicon glyphicon-minus"></i> ' 
+            });
+
+            $('.table-demo-2').aCollapTable({
+                startCollapsed: true,
+                addColumn: true,
+                plusButton: '<i class="glyphicon glyphicon-plus"></i> ', 
+                minusButton: '<i class="glyphicon glyphicon-minus"></i> ' 
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 jumbotron">
+                <h1>aCollaptable</h1>
+                <p>aCollapTable is a jQuery plugin that will make your html tables collapsables.</p>
+                <a href="#demo1" class="btn btn-lg btn-primary">Learn more</a>          
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>Demo 1 <small>Simple use</small></h1>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div role="tabpanel">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#result-1" aria-controls="result-1" role="tab" data-toggle="tab">Result</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#html-1" aria-controls="html-1" role="tab" data-toggle="tab">HTML</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#js-1" aria-controls="js-1" role="tab" data-toggle="tab">JS</a>
+                        </li>
+                    </ul>
+                
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="result-1">
+                            
+                            <table class="table table-hover" id="demo-1">
+                                <thead>
+                                    <tr>
+                                        <th>Food</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-id="1" data-parent="">
+                                        
+                                        <td>Meat</td>
+                                    </tr>
+                                    <tr data-id="2" data-parent="1">
+                                        
+                                        <td>Beef</td>
+                                    </tr>
+                                    <tr data-id="3" data-parent="1">
+                                        
+                                        <td>Pork</td>
+                                    </tr>
+                                    <tr data-id="3" data-parent="1">
+                                        
+                                        <td>Turkey</td>
+                                    </tr>
+                                    <tr data-id="4" data-parent="">
+                                        
+                                        <td>Fruits</td>
+                                    </tr>
+                                    <tr data-id="5" data-parent="4">
+                                        
+                                        <td>Apple</td>
+                                    </tr>
+                                    <tr data-id="6" data-parent="4">
+                                        
+                                        <td>Orange</td>
+                                    </tr>
+                                    <tr data-id="7" data-parent="4">
+                                        
+                                        <td>Pear</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="html-1">
+                        <br>
+                            <pre>
+&lt;table class="table table-hover" id="demo-1"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Food&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr data-id="1" data-parent=""&gt;
+            
+            &lt;td&gt;Meat&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr data-id="2" data-parent="1"&gt;
+            
+            &lt;td&gt;Beef&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr data-id="3" data-parent="1"&gt;
+            
+            &lt;td&gt;Pork&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr data-id="3" data-parent="1"&gt;
+            
+            &lt;td&gt;Turkey&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr data-id="4" data-parent=""&gt;
+            
+            &lt;td&gt;Fruits&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr data-id="5" data-parent="4"&gt;
+            
+            &lt;td&gt;Apple&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr data-id="6" data-parent="4"&gt;
+            
+            &lt;td&gt;Orange&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr data-id="7" data-parent="4"&gt;
+            
+            &lt;td&gt;Pear&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+                            </pre>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="js-1">
+                            <br>
+                            <pre>
+$('#demo-1').aCollapTable({
+    startCollapsed: true,
+    addColumn: false,
+    plusButton: '&lt;i class="glyphicon glyphicon-plus"&gt;&lt;/i&gt; ', 
+    minusButton: '&lt;i class="glyphicon glyphicon-minus"&gt;&lt;/i&gt; ' 
+});
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>Demo 2 <small>Two tables with class</small></h1>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div role="tabpanel">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#result-2" aria-controls="result-2" role="tab" data-toggle="tab">Result</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#html-2" aria-controls="html-2" role="tab" data-toggle="tab">HTML</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#js-2" aria-controls="js-2" role="tab" data-toggle="tab">JS</a>
+                        </li>
+                    </ul>
+                
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="result-2">
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <table class="table table-hover table-demo-2">
+                                        <thead>
+                                            <tr>
+                                                <th>Consoles</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-id="1" data-parent="">
+                                                <td>Sony</td>
+                                            </tr>
+                                            <tr data-id="2" data-parent="1">
+                                                <td>PS 4</td>
+                                            </tr>
+                                            <tr data-id="3" data-parent="1">
+                                                <td>PS Vita</td>
+                                            </tr>
+                                            <tr data-id="4" data-parent="">
+                                                <td>Nintendo</td>
+                                            </tr>
+                                            <tr data-id="5" data-parent="4">
+                                                <td>Wii U</td>
+                                            </tr>
+                                            <tr data-id="6" data-parent="4">
+                                                <td>3DS</td>
+                                            </tr>
+                                            <tr data-id="7" data-parent="">
+                                                <td>Microsoft</td>
+                                            </tr>
+                                            <tr data-id="8" data-parent="7">
+                                                <td>XBOX One</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <table class="table table-hover table-demo-2">
+                                        <thead>
+                                            <tr>
+                                                <th>Sony VideoGames</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-id="1" data-parent="">
+                                                <td>PS 4</td>
+                                            </tr>
+                                            <tr data-id="2" data-parent="1">
+                                                <td>Infamous Second Son</td>
+                                            </tr>
+                                            <tr data-id="3" data-parent="1">
+                                                <td>Fallout 4</td>
+                                            </tr>
+                                            <tr data-id="4" data-parent="1">
+                                                <td>Call of Duty : Black Ops III</td>
+                                            </tr>
+                                            <tr data-id="5" data-parent="1">
+                                                <td>Need for Speed</td>
+                                            </tr>
+                                            <tr data-id="6" data-parent="">
+                                                <td>PS Vita</td>
+                                            </tr>
+                                            <tr data-id="7" data-parent="6">
+                                                <td>Minecraft: PlayStation Vita Edition</td>
+                                            </tr>
+                                            <tr data-id="8" data-parent="6">
+                                                <td>LEGO Batman 3: Beyond Gotham</td>
+                                            </tr>
+                                            <tr data-id="9" data-parent="6">
+                                                <td>LittleBigPlanet PlayStation Vita Marvel Super Hero Edition</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="html-2">
+                            <br>
+                            <pre>
+&lt;div class="col-md-6"&gt;
+    &lt;table class="table table-hover table-demo-2"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Consoles&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr data-id="1" data-parent=""&gt;
+                &lt;td&gt;Sony&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="2" data-parent="1"&gt;
+                &lt;td&gt;PS 4&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="3" data-parent="1"&gt;
+                &lt;td&gt;PS Vita&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="4" data-parent=""&gt;
+                &lt;td&gt;Nintendo&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="5" data-parent="4"&gt;
+                &lt;td&gt;Wii U&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="6" data-parent="4"&gt;
+                &lt;td&gt;3DS&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="7" data-parent=""&gt;
+                &lt;td&gt;Microsoft&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="8" data-parent="7"&gt;
+                &lt;td&gt;XBOX One&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="col-md-6"&gt;
+    &lt;table class="table table-hover table-demo-2"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Sony VideoGames&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr data-id="1" data-parent=""&gt;
+                &lt;td&gt;PS 4&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="2" data-parent="1"&gt;
+                &lt;td&gt;Infamous Second Son&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="3" data-parent="1"&gt;
+                &lt;td&gt;Fallout 4&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="4" data-parent="1"&gt;
+                &lt;td&gt;Call of Duty : Black Ops III&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="5" data-parent="1"&gt;
+                &lt;td&gt;Need for Speed&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="6" data-parent=""&gt;
+                &lt;td&gt;PS Vita&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="7" data-parent="6"&gt;
+                &lt;td&gt;Minecraft: PlayStation Vita Edition&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="8" data-parent="6"&gt;
+                &lt;td&gt;LEGO Batman 3: Beyond Gotham&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr data-id="9" data-parent="6"&gt;
+                &lt;td&gt;LittleBigPlanet PlayStation Vita Marvel Super Hero Edition&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+                            </pre>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="js-2">
+                            <pre>
+$('.table-demo-2').aCollapTable({
+    startCollapsed: true,
+    addColumn: true,
+    plusButton: '&lt;i class="glyphicon glyphicon-plus"&gt;&lt;/i&gt; ', 
+    minusButton: '&lt;i class="glyphicon glyphicon-minus"&gt;&lt;/i&gt; ' 
+});
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-center">
+                        <span class="muted">
+                            <strong>aCollapTable</strong> is a jQuery plugin that will make your html tables collapsables.
+                        </span>
+                        <br>
+                        More in Github : <a href="https://github.com/alvaroveliz/aCollapTable">https://github.com/alvaroveliz/aCollapTable</a>
+                    </p>
+                </div>
+            </div>    
+        </div>
+    </footer>
+</body>
+</html>

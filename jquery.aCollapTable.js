@@ -102,7 +102,15 @@
 
         $(document).on('click', '.act-button-collapse', function(){
           if ( $('tr', self).length > 0 ) {
-
+            expands = [];
+            $('tr', self).each(function(k, item){
+              if ($(item).hasClass('act-tr-expanded')) {
+                expands.push($(item));
+              }
+            });
+            $.each(expands, function(k, $item){
+              _collaptable($table, $('.act-more', $item));
+            });
           }
         });
 
